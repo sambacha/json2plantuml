@@ -1,0 +1,14 @@
+# docker-compose.yml
+version: '3'
+services:
+ json2uml:
+    image: Dockerfile
+    user: $UID:$GID
+    working_dir: $HOME
+    stdin_open: true
+    volumes:
+      - /etc/group:/etc/group:ro
+      - /etc/passwd:/etc/passwd:ro
+      - /etc/shadow:/etc/shadow:ro
+    tty: true
+    command: tail -f /dev/null
